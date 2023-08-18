@@ -1,4 +1,5 @@
 import { useState } from "react";
+import "./Worldcup.css"
 
 
 const Worldcup = ({ contry }) => {
@@ -24,30 +25,41 @@ const Worldcup = ({ contry }) => {
 
     }
 
-    return <>
+    return <div className="worldcup-container">
         {(shuffledData.length >= 2) && (
             <>
-                <div>
-                    <img src={shuffledData[0].image} alt={shuffledData[0].name} />
-                    <h2>{shuffledData[0].name}</h2>
-                    <button onClick={() => selectWinner(0)}>이상형 선택</button>
-                </div>s
-                <div>
-                    <img src={shuffledData[1].image} alt={shuffledData[1].name} />
-                    <h2>{shuffledData[1].name}</h2>
-                    <button onClick={() => selectWinner(1)}>이상형 선택</button>
+                <div className="half">
+                    <div className="item">
+                        <img src={shuffledData[0].image} alt={shuffledData[0].name} />
+                        <h2>{shuffledData[0].name}</h2>
+                        <button onClick={() => selectWinner(0)}>여기 어때?</button>
+                    </div>
+                </div>
+                <div className="vs">
+                    <img src="/vs.png" alt="VS" />
+                </div>
+
+                <div className="half">
+                    <div className="item">
+                        <img src={shuffledData[1].image} alt={shuffledData[1].name} />
+                        <h2>{shuffledData[1].name}</h2>
+                        <button onClick={() => selectWinner(1)}>여기 어때?</button>
+                    </div>
                 </div>
 
             </>)
         }
-        {(shuffledData.length === 1) && (
-            <div>
-                <h2>우승자</h2>
-                <img src={shuffledData[0].image} alt={shuffledData[0].name} />
-                <h2>{shuffledData[0].name}</h2>
-            </div>
-        )}
-    </>
+
+        {
+            (shuffledData.length === 1) && (
+                <div className="winner">
+                    <h2>우승자</h2>
+                    <img src={shuffledData[0].image} alt={shuffledData[0].name} />
+                    <h2>{shuffledData[0].name}</h2>
+                </div>
+            )
+        }
+    </div>
 }
 
 export default Worldcup
