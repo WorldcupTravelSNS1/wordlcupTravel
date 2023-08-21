@@ -1,5 +1,6 @@
 import { useState } from "react";
 import "./Worldcup.css"
+import vsImage from "../assets/VS.png"
 
 
 const Worldcup = ({ contry }) => {
@@ -8,7 +9,7 @@ const Worldcup = ({ contry }) => {
         const shuffled = [...array];
         for (let i = shuffled.length - 1; i > 0; i--) {
             const j = Math.floor(Math.random() * (i + 1));
-            [shuffled[i], shuffled[j]] = [shuffled[j], shuffled[i]]; // Swap
+            [shuffled[i], shuffled[j]] = [shuffled[j], shuffled[i]];
         }
         return shuffled;
     }
@@ -36,7 +37,7 @@ const Worldcup = ({ contry }) => {
                     </div>
                 </div>
                 <div className="vs">
-                    <img src="/vs.png" alt="VS" />
+                    <img src={vsImage} alt="VS" />
                 </div>
 
                 <div className="half">

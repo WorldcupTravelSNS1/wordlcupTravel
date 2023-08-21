@@ -2,8 +2,8 @@
 import { useState } from 'react';
 import './App.css';
 import { world } from './data/world';
-import Worldcup from './components/Worldcup';
-import Login from './components/auth/Login';
+import Worldcup from './pages/Worldcup';
+import Login from './pages/Login';
 import MyRouters from './routes/MyRouters';
 
 function App() {
