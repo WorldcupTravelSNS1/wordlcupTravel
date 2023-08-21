@@ -1,20 +1,14 @@
-import { useState } from "react";
-import "./App.css";
-import { world } from "./data/world";
-import Worldcup from "./pages/Worldcup";
-import Login from "./pages/Login";
-import MyRouters from "./routes/MyRouters";
-import Board from "./pages/Board/Board";
-
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+import Component from "./components/Component";
 function App() {
-  const [contry] = useState(world);
-
   return (
-    <div className="App">
-      <MyRouters></MyRouters>
-      <h1>Feed App</h1>
-      <Board></Board>
-    </div>
+    <>
+      <BrowserRouter>
+        <Routes>
+          <Route path="/" element={<Component />} />
+        </Routes>
+      </BrowserRouter>
+    </>
   );
 }
 

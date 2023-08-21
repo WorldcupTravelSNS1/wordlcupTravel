@@ -1,25 +1,31 @@
 import { useEffect, useState } from "react";
 import BoardData from "../../data/BoardData";
+import CursorEffect from "./CursorEffect";
+import Cursor from "./Cursor";
 
 const CommentForm = ({ postId, onComment }) => {
   const [commentText, setCommentText] = useState("");
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    onComment(postId, commentText);
-    setCommentText("");
+    if (commentText.trim() !== "") {
+      onComment(postId, commentText);
+      setCommentText("");
+    }
   };
 
   return (
-    <form onSubmit={handleSubmit}>
-      <input
-        type="text"
-        value={commentText}
-        onChange={(e) => setCommentText(e.target.value)}
-        placeholder="Write a comment..."
-      />
-      <button type="submit">Comment</button>
-    </form>
+    <div>
+      <form onSubmit={handleSubmit}>
+        <input
+          type="text"
+          value={commentText}
+          onChange={(e) => setCommentText(e.target.value)}
+          placeholder="Write a comment..."
+        />
+        <button type="submit">Comment</button>
+      </form>
+    </div>
   );
 };
 
@@ -74,18 +80,26 @@ const Board = () => {
   };
 
   return (
-    <div className="board">
-      {posts.map((post) => (
-        <div key={post.id} className="post">
-          <h2>{post.title}</h2>
-
-          <img src={post.boardImages[0].imageUrl} alt={post.title} />
-          <p>{post.content}</p>
-          {isLoading && <p>Loading...</p>}
-          <button onClick={() => handleLike(post.id)}>Like</button>
-          <CommentForm postId={post.id} onComment={handleComment} />
-        </div>
-      ))}
+    <div>
+      <Cursor />
+      <div className="board">
+        {posts.map((post) => (
+          <div key={post.id} className="post">
+            <h2>{post.title}</h2>
+            <img src={post.boardImages[0].imageUrl} alt={post.title} />
+            <p>{post.content}</p>
+            <p>Likes: {post.likeCount}</p>
+            <button onClick={() => handleLike(post.id)}>Like</button>
+            <CommentForm postId={post.id} onComment={handleComment} />
+            <ul>
+              {post.comments.map((comment) => (
+                <li key={comment.id}>{comment.text}</li>
+              ))}
+            </ul>
+            {isLoading && <p>Loading...</p>}
+          </div>
+        ))}
+      </div>
     </div>
   );
 };
