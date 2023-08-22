@@ -41,6 +41,7 @@ const KakaoLogin = () => {
         const userInfo = await loadToken(res.data.access_token)
         console.log(userInfo)
     }
+
     const loadToken = async (accessToken) => {
         const res = await axios.post(`https://kapi.kakao.com/v2/user/me`,
             {},
@@ -52,7 +53,7 @@ const KakaoLogin = () => {
             }
         )
         console.log(res.data.kakao_account.email)
-        console.log(res.data.properties.nickname)
+
         return res
     }
 
