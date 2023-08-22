@@ -48,3 +48,10 @@ export const myAxios = async (url, method, body) => {
         return { body: null, status: "error" };
     }
 };
+
+export const apiCall = async (url, method, bodys, headers) => {
+    const body = await axios({
+        method, url, bodys, headers
+    })
+    return body
+}

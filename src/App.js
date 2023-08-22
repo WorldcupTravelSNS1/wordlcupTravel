@@ -3,7 +3,7 @@ import { useState } from 'react';
 import './App.css';
 import { world } from './data/world';
 import Worldcup from './pages/Worldcup';
-import Login from './pages/Login';
+import Login from './pages/KakaoLogin';
 import MyRouters from './routes/MyRouters';
 
 function App() {
