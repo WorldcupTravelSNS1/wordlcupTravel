@@ -1,6 +1,6 @@
 import { useEffect } from "react"
 import kakaoImage from "../assets/kakao.png"
-import { apiCall } from "../services/api"
+
 import axios from "axios"
 
 const KakaoLogin = () => {
@@ -52,10 +52,25 @@ const KakaoLogin = () => {
                 }
             }
         )
-        console.log(res.data.kakao_account.email)
-
-        return res
+        const userData = await pushData(res.data.kakao_account.email, res.data.properties.nickname);
     }
+
+
+    const pushData = async (eamil, nickname) => {
+        const res = await axios.get(`http://localhost:8080/api/v1/auth?email=${eamil}&nickname=${nickname}`,
+            {},
+            {
+                // headers: {
+                //     "Access-Control-Allow-Origin": ""
+                // }
+            })
+        console.log(res)
+
+        return res.data
+
+    }
+
+
 
 
     return (

@@ -11,8 +11,8 @@ function Cover() {
             autoPlay
             muted
             loop
-            src={require("../assets/Main.gif")}
-            type="image/gif"
+            src={require("../assets/main.mp4")}
+            type="video/mp4"
           />
         </CoverVideo>
         <CoverBody>
@@ -27,21 +27,17 @@ function Cover() {
     </>
   );
 }
-
 export default Cover;
-
 const Container = styled.div`
   display: flex;
   flex-direction: column;
 `;
-
 const CoverVideo = styled.div`
   position: relative;
   width: 100vw;
   height: 100vh;
 `;
-
-const Video = styled.img`
+const Video = styled.video`
   width: 100%;
   height: 100%;
   object-fit: cover;
@@ -60,7 +56,6 @@ const BottomFade = styled.div`
   height: 10vh;
   z-index: 1;
 `;
-
 const CoverBody = styled.div`
   width: 100vw;
   height: 100vh;
@@ -84,7 +79,6 @@ const CoverText = styled.div`
   font-weight: 600;
   line-height: 35px;
 `;
-
 const CoverTextu = styled.div`
   // cover text upper
   color: white;
@@ -93,7 +87,6 @@ const CoverTextu = styled.div`
     padding-top: 2vh;
   }
 `;
-
 const CoverButton = styled.a`
   cursor: pointer;
   clear: both;
@@ -104,7 +97,7 @@ const CoverButton = styled.a`
   color: white;
   transition: all 0.8s, color 0.3s 0.3s;
   cursor: pointer;
-  background: #04a551;
+  background: #04A551;
   color: white;
   :hover {
     box-shadow: -300px 0 0 0 rgb(120, 178, 167) inset;

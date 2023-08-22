@@ -2,7 +2,7 @@
 
 import { useState } from "react";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
-import Login from "../pages/Login";
+
 import Worldcup from "../pages/Worldcup";
 import { world } from "../data/world";
 import Component from "../components/Component";

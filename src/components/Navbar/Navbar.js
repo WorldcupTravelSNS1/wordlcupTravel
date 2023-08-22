@@ -5,6 +5,7 @@ import { AiOutlineStar } from "react-icons/ai";
 import { MdMenu } from "react-icons/md";
 import { ImCross } from "react-icons/im";
 import MobileNavigation from "./MobileNavigation";
+import KakaoLogin from "../../pages/KakaoLogin";
 
 function Navbar() {
   const [openNav, setOpenNav] = useState(false);
@@ -37,9 +38,9 @@ function Navbar() {
       <Right>
         <FavIcon size="42" />
         <Profile src={require("../../assets/Profile.png")} alt="Profile" />
-        {/* <Login href="/signin" style={{ textDecoration: "none" }}>
+        <KakaoLogin href="/signin" style={{ textDecoration: "none" }}>
           Login
-        </Login> */}
+        </KakaoLogin>
       </Right>
       <MenuIconCon>
         {openNav ? (
@@ -61,9 +62,9 @@ function Navbar() {
       <Right>
         <FavIcon size="42" />
         <Profile src={require("../../assets/Profile.png")} alt="Profile" />
-        {/* <Login href="/signin" style={{ textDecoration: "none" }}>
+        <KakaoLogin href="/signin" style={{ textDecoration: "none" }}>
           Login
-        </Login> */}
+        </KakaoLogin>
       </Right>
       <MenuIconCon>
         {openNav ? (
