@@ -1,4 +1,4 @@
-import React, { useEffect, useRef, useState } from "react";
+import React, { useEffect, useRef, useState, useCallback } from "react";
 
 function useEventListener(eventName, handler, element = document) {
   const savedHandler = useRef();
@@ -22,6 +22,8 @@ function useEventListener(eventName, handler, element = document) {
 }
 
 function AnimatedCursor({
+  cursorOuterRef,
+  cursorInnerRef,
   color = "220, 90, 90",
   outerAlpha = 0.4,
   innerSize = 8,
@@ -29,8 +31,6 @@ function AnimatedCursor({
   outerScale = 5,
   innerScale = 0.7,
 }) {
-  const cursorOuterRef = useRef();
-  const cursorInnerRef = useRef();
   const requestRef = useRef();
   const previousTimeRef = useRef();
   const [coords, setCoords] = useState({ x: 0, y: 0 });
@@ -49,21 +49,24 @@ function AnimatedCursor({
     endY.current = clientY;
   };
 
-  const animateOuterCursor = (time) => {
-    if (previousTimeRef.current !== undefined) {
-      coords.x += (endX.current - coords.x) / 8;
-      coords.y += (endY.current - coords.y) / 8;
-      cursorOuterRef.current.style.top = coords.y + "px";
-      cursorOuterRef.current.style.left = coords.x + "px";
-    }
-    previousTimeRef.current = time;
-    requestRef.current = requestAnimationFrame(animateOuterCursor);
-  };
+  const animateOuterCursor = useCallback(
+    (time) => {
+      if (previousTimeRef.current !== undefined) {
+        coords.x += (endX.current - coords.x) / 8;
+        coords.y += (endY.current - coords.y) / 8;
+        cursorOuterRef.current.style.top = coords.y + "px";
+        cursorOuterRef.current.style.left = coords.x + "px";
+      }
+      previousTimeRef.current = time;
+      requestRef.current = requestAnimationFrame(animateOuterCursor);
+    },
+    [cursorOuterRef, coords, endX, endY]
+  );
 
   useEffect(() => {
     requestRef.current = requestAnimationFrame(animateOuterCursor);
     return () => cancelAnimationFrame(requestRef.current);
-  }, []);
+  }, [animateOuterCursor]);
 
   const onMouseDown = () => setIsActive(true);
   const onMouseUp = () => setIsActive(false);
@@ -85,39 +88,45 @@ function AnimatedCursor({
       cursorOuterRef.current.style.transform = "scale(1)";
       document.body.style.cursor = "none";
     }
-  }, [innerScale, outerScale, isActive]);
 
-  useEffect(() => {
     if (isActiveClickable) {
       cursorInnerRef.current.style.transform = `scale(${innerScale * 1.3})`;
       cursorOuterRef.current.style.transform = `scale(${outerScale * 1.4})`;
       document.body.style.cursor = "auto";
     }
-  }, [innerScale, outerScale, isActiveClickable]);
+  }, [
+    innerScale,
+    outerScale,
+    isActive,
+    isActiveClickable,
+    cursorInnerRef,
+    cursorOuterRef,
+  ]);
 
   useEffect(() => {
     if (isVisible) {
-      cursorInnerRef.current.style.opacity = "1"; // 수정: 문자열로 설정
-      cursorOuterRef.current.style.opacity = "1"; // 수정: 문자열로 설정
+      cursorInnerRef.current.style.opacity = "1";
+      cursorOuterRef.current.style.opacity = "1";
     } else {
-      cursorInnerRef.current.style.opacity = "0"; // 수정: 문자열로 설정
-      cursorOuterRef.current.style.opacity = "0"; // 수정: 문자열로 설정
+      cursorInnerRef.current.style.opacity = "0";
+      cursorOuterRef.current.style.opacity = "0";
     }
-  }, [isVisible]);
+  }, [isVisible, cursorInnerRef, cursorOuterRef]);
 
   const cursorStyles = {
     cursorOuter: {
       zIndex: 999,
       position: "fixed",
-      opacity: "1", // 수정: 문자열로 설정
+      opacity: "1",
       pointerEvents: "none",
       transition: "opacity 0.15s ease-in-out, transform 0.15s ease-in-out",
     },
     cursorInner: {
+      zIndex: 10000,
       position: "fixed",
       borderRadius: "50%",
-      width: `${innerSize}px`, // 수정: 픽셀 단위로 설정
-      height: `${innerSize}px`, // 수정: 픽셀 단위로 설정
+      width: `${innerSize}px`,
+      height: `${innerSize}px`,
       pointerEvents: "none",
       backgroundColor: `rgba(${color}, 1)`,
       transition: "opacity 0.15s ease-in-out, transform 0.25s ease-in-out",
@@ -133,9 +142,14 @@ function AnimatedCursor({
 }
 
 function Cursor() {
+  const cursorOuterRef = useRef();
+  const cursorInnerRef = useRef();
   return (
     <div className="App">
-      <AnimatedCursor />
+      <AnimatedCursor
+        cursorOuterRef={cursorOuterRef}
+        cursorInnerRef={cursorInnerRef}
+      />
       {/* 나머지 컨텐츠 */}
     </div>
   );

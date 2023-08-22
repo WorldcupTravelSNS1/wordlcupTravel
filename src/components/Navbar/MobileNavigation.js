@@ -26,7 +26,7 @@ const List = styled.li`
   cursor: pointer;
   font-weight: 700;
   padding: 0.4rem 0.7rem;
-  border: 3px solid transparent;
+  border: 5px solid transparent;
   :hover {
     border: 3px solid white;
     border-radius: 1rem;

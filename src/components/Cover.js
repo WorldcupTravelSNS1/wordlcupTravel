@@ -37,7 +37,8 @@ const CoverVideo = styled.div`
   width: 100vw;
   height: 100vh;
 `;
-const Video = styled.video`
+
+const Video = styled.img`
   width: 100%;
   height: 100%;
   object-fit: cover;
@@ -54,7 +55,7 @@ const BottomFade = styled.div`
   top: 91vh;
   width: 100vw;
   height: 10vh;
-  z-index: 1;
+  z-index: 9998;
 `;
 const CoverBody = styled.div`
   width: 100vw;
@@ -73,6 +74,8 @@ const CoverTitle = styled.div`
   font-size: 7vh;
   text-align: center;
   line-height: 65px;
+  font-family: "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande",
+    "Lucida Sans", Arial, sans-serif;
 `;
 const CoverText = styled.div`
   color: white;
@@ -96,6 +99,8 @@ const CoverButton = styled.a`
   display: inline-block;
   color: white;
   transition: all 0.8s, color 0.3s 0.3s;
+  font-family: "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande",
+    "Lucida Sans", Arial, sans-serif;
   cursor: pointer;
   background: #04A551;
   color: white;
