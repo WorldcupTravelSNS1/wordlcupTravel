@@ -11,8 +11,8 @@ function Cover() {
             autoPlay
             muted
             loop
-            src={require("../assets/Main.gif")}
-            type="image/gif"
+            src={require("../assets/main.mp4")}
+            type="video/mp4"
           />
         </CoverVideo>
         <CoverBody>
@@ -41,7 +41,7 @@ const CoverVideo = styled.div`
   height: 100vh;
 `;
 
-const Video = styled.img`
+const Video = styled.video`
   width: 100%;
   height: 100%;
   object-fit: cover;
@@ -58,7 +58,7 @@ const BottomFade = styled.div`
   top: 91vh;
   width: 100vw;
   height: 10vh;
-  z-index: 1;
+  z-index: 9998;
 `;
 
 const CoverBody = styled.div`
@@ -78,6 +78,8 @@ const CoverTitle = styled.div`
   font-size: 7vh;
   text-align: center;
   line-height: 65px;
+  font-family: "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande",
+    "Lucida Sans", Arial, sans-serif;
 `;
 const CoverText = styled.div`
   color: white;
@@ -103,6 +105,8 @@ const CoverButton = styled.a`
   display: inline-block;
   color: white;
   transition: all 0.8s, color 0.3s 0.3s;
+  font-family: "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande",
+    "Lucida Sans", Arial, sans-serif;
   cursor: pointer;
   background: #04a551;
   color: white;

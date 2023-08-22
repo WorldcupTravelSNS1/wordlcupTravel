@@ -1,5 +1,5 @@
 import React from "react";
-import styled from "styled-components";
+import styled, { keyframes } from "styled-components";
 
 const Nav = styled.ul`
   display: flex;
@@ -7,73 +7,103 @@ const Nav = styled.ul`
   align-items: center;
   flex: 1;
   margin: 0 2rem;
+
   @media (max-width: 600px) {
     display: none;
   }
 `;
-const List = styled.li`
+
+const bounce = keyframes`
+  0%, 100% {
+    transform: translateY(0);
+  }
+  25% {
+    transform: translateY(-10px);
+  }
+  50% {
+    transform: translateY(0);
+  }
+  75% {
+    transform: translateY(10px);
+  }
+`;
+
+const StyledList = styled.li`
   cursor: pointer;
-  font-weight: 100;
-  border: 2px solid #04a551;
-  border-radius: 1.5rem;
-  color: #ff0;
-  margin: 1rem;
-  text-align: center;
-  font-family: roboto;
-  font-size: 1.35rem;
-  overflow: hidden;
-  padding: 0.5rem 1.6rem;
-  position: relative;
+  border-radius: 24px;
+  padding: 16px 32px;
+  font-family: "Roboto";
+  font-weight: 500;
+  display: block;
+  outline: none;
   text-decoration: none;
-  transition: 0.2s transform ease-in-out;
-  will-change: transform;
-  z-index: 0;
-  ::after {
-    background-color: #04a551;
-    border-radius: 3rem;
-    content: "";
-    display: block;
-    height: 100%;
-    width: 100%;
-    position: absolute;
-    left: 0;
-    top: 0;
-    transform: translate(-100%, 0) rotate(10deg);
-    transform-origin: top left;
-    transition: 0.2s transform ease-out;
-    will-change: transform;
-    z-index: -1;
+  font-size: 18px;
+  background: var(--background);
+  color: var(--text);
+  box-shadow: var(--shadow);
+  transition: transform var(--duration) ease, box-shadow var(--duration) ease;
+
+  &:hover {
+    --y: var(--move-hover);
+    --shadow: var(--shadow-hover);
+    transform: translateY(-5px);
+    div span {
+      animation: ${bounce} 1s infinite;
+    }
   }
 
-  &:hover::after {
-    transform: translate(0, 0);
-  }
-  &:hover {
-    border: 2px solid transparent;
-    color: indigo;
-    transform: scale(1.05);
-    will-change: transform;
+  div {
+    display: flex;
+    overflow: hidden;
+    text-shadow: 0 var(--font-shadow) 0 var(--text);
+    span {
+      display: inline-block;
+      backface-visibility: hidden;
+      font-style: normal;
+    }
   }
 `;
 
 const Navigation = () => {
   return (
     <Nav>
-      <List>
+      <StyledList className="dark">
         <a href="#home" style={{ color: "white", textDecoration: "none" }}>
-          Home
+          <div>
+            <span>H</span>
+            <span>o</span>
+            <span>m</span>
+            <span>e</span>
+          </div>
         </a>
-      </List>
-      <List>
+      </StyledList>
+      <StyledList className="white">
         <a href="#about-us" style={{ color: "white", textDecoration: "none" }}>
-          AboutUs
+          <div>
+            <span>A</span>
+            <span>b</span>
+            <span>o</span>
+            <span>u</span>
+            <span>t</span>
+            <span>U</span>
+            <span>s</span>
+          </div>
         </a>
-      </List>
-      <List>
+      </StyledList>
+      <StyledList className="dark">
         <a href="#about-us" style={{ color: "white", textDecoration: "none" }}>
-          WorldCup
+          <div>
+            <span>W</span>
+            <span>o</span>
+            <span>r</span>
+            <span>l</span>
+            <span>d</span>
+            <span>C</span>
+            <span>u</span>
+            <span>p</span>
+          </div>
         </a>
-      </List>
+      </StyledList>
     </Nav>
   );
 };
