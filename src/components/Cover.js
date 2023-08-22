@@ -1,10 +1,20 @@
 import React from "react";
-import styled from "styled-component";
+import styled from "styled-components";
+import Cursor from "./cursor/Cursor";
 function Cover() {
   return (
     <>
+      <Cursor />
       <Container id="home">
-        <CoverImg src={require("../assets/cover.png")} alt="cover" />
+        <CoverVideo>
+          <Video
+            autoPlay
+            muted
+            loop
+            src={require("../assets/Main.gif")}
+            type="image/gif"
+          />
+        </CoverVideo>
         <CoverBody>
           <CoverTitle>여러분들이 좋아하는 여행지를</CoverTitle>
           <CoverTitle>정확히 알고 계시나요?</CoverTitle>
@@ -25,12 +35,17 @@ const Container = styled.div`
   flex-direction: column;
 `;
 
-const CoverImg = styled.img`
+const CoverVideo = styled.div`
+  position: relative;
   width: 100vw;
   height: 100vh;
-  object-fit: cover;
 `;
 
+const Video = styled.img`
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+`;
 const BottomFade = styled.div`
   position: absolute;
   background: rgb(255, 255, 255);
