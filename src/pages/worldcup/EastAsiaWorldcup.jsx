@@ -1,9 +1,9 @@
 import { useEffect, useState } from "react";
 import "./Worldcup.css"
-import vsImage from "../assets/VS.png"
+import vsImage from "/wordcuptravel/wordlcupTravel/src/assets/VS.png"
 
 
-const Worldcup = ({ contry }) => {
+const EastAsiaWorldcup = ({ contry }) => {
 
 
     const shuffleArray = (array) => {
@@ -27,7 +27,7 @@ const Worldcup = ({ contry }) => {
 
     }
 
-    return <div className="worldcup-container">
+    return <div className="worldcup-container" >
         {(shuffledData.length >= 2) && (
             <>
                 <div className="half">
@@ -64,4 +64,4 @@ const Worldcup = ({ contry }) => {
     </div>
 }
 
-export default Worldcup
+export default EastAsiaWorldcup

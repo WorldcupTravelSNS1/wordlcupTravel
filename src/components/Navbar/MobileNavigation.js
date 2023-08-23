@@ -46,7 +46,10 @@ const MobileNavigation = () => {
         <a href="/">About Us</a>
       </List>
       <List>
-        <a href="/">Package</a>
+        <a href="/worldcup">Worldcup</a>
+      </List>
+      <List>
+        <a href="/board">Feed</a>
       </List>
     </Nav>
   );

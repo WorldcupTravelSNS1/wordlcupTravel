@@ -59,8 +59,7 @@ function Navbar() {
       <Navigation />
       {openNav && <MobileNavigation />}
       <Right>
-        <FavIcon size="42" />
-        <Profile src={require("../../assets/Profile.png")} alt="Profile" />
+
         <KakaoLogin href="/signin" style={{ textDecoration: "none" }}>
           Login
         </KakaoLogin>

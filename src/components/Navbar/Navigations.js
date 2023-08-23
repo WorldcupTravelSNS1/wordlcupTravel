@@ -91,7 +91,7 @@ const Navigation = () => {
         </a>
       </StyledList>
       <StyledList className="dark">
-        <a href="#about-us" style={{ color: "white", textDecoration: "none" }}>
+        <a href="worldcup" style={{ color: "white", textDecoration: "none" }}>
           <div>
             <span>W</span>
             <span>o</span>
@@ -101,6 +101,16 @@ const Navigation = () => {
             <span>C</span>
             <span>u</span>
             <span>p</span>
+          </div>
+        </a>
+      </StyledList>
+      <StyledList className="dark">
+        <a href="board" style={{ color: "white", textDecoration: "none" }}>
+          <div>
+            <span>F</span>
+            <span>e</span>
+            <span>e</span>
+            <span>d</span>
           </div>
         </a>
       </StyledList>
