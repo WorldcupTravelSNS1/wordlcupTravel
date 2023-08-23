@@ -1,9 +1,10 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import "./Worldcup.css"
 import vsImage from "../assets/VS.png"
 
 
 const Worldcup = ({ contry }) => {
+
 
     const shuffleArray = (array) => {
         const shuffled = [...array];
