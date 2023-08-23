@@ -2,17 +2,16 @@ import React, { useEffect, useState } from "react";
 import styled from "styled-components";
 import Cursor from "./cursor/Cursor";
 import Worldcup from "../pages/Worldcup";
-import { world } from "../data/world"
+import { world } from "../data/world";
 import { useNavigate } from "react-router";
 function Cover() {
   const [showCursor, setShowCursor] = useState(true);
-  const nav = useNavigate()
+  const nav = useNavigate();
 
   const goToWorldcup = () => {
     setShowCursor(false);
-    nav('/worldcup')
-  }
-
+    nav("/worldcup");
+  };
 
   return (
     <>
@@ -33,7 +32,7 @@ function Cover() {
           <CoverTitle>작정하고 떠나라</CoverTitle>
           <CoverTextu>🚀어느 나라로?🚀</CoverTextu>
           <CoverText>여행지 월드컵 해보던가</CoverText>
-          <CoverButton onClick={goToWorldcup} >시 작</CoverButton>
+          <CoverButton onClick={goToWorldcup}>시 작</CoverButton>
         </CoverBody>
         <BottomFade />
       </Container>
@@ -103,7 +102,7 @@ const CoverTextu = styled.div`
     padding-top: 2vh;
   }
 `;
-const CoverButton = styled.a`
+const CoverButton = styled.div`
   cursor: pointer;
   clear: both;
   border-radius: 3px;
@@ -112,11 +111,11 @@ const CoverButton = styled.a`
   display: inline-block;
   color: black;
   transition: all 0.8s, color 0.3s 0.3s;
-  font-family: "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande",
-    "Lucida Sans", Arial, sans-serif;
   cursor: pointer;
   background: white;
   color: black;
+  font-family: Impact, Haettenschweiler, "Arial Narrow Bold", sans-serif;
+
   :hover {
     box-shadow: -300px 0 0 0 rgb(120, 178, 167) inset;
   }
