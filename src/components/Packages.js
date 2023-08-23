@@ -4,45 +4,45 @@ import PackageCard from "./PackageCard";
 import PackageSelect from "./PackageSelect";
 
 function Packages() {
-  return (
-    <Container  id='packages'>
+    return (
+        <Container id='packages'>
 
-        <Title>Best Packages For You</Title>
-        <Package>
-            <PackageSelect title='Hot Deals' active={true} />
-            <PackageSelect title='Backpack' active={false} />
-            <PackageSelect title ='South Asia'active={false} />
-            <PackageSelect title='United States' active={false} />
-            <PackageSelect title='Russia' active={false} />
-            <PackageSelect title='More' active={false} />
-        </Package>
-        <PackageCards>
-            <PackageCard
-                location='Indonesia'
-                cost='$500 / Person'
-                tagline='Explore the Beauty of the island for 3 days and 2 nights with our travel agency'
-                stay='3 Days, 2 Nights'
-                image='indonesia2.png'
-            />
-            <PackageCard
-                location='Japan'
-                cost='$800 / Person'
-                tagline='Enjoy the Shrimes and blossoms here in this beautiful country'
-                stay='3 Days, 2 Nights'
-                image='japan.png'
-            />
-            <PackageCard
-                location='Mountains'
-                cost='$600 / Person'
-                tagline='Explore the majestic mountains and landscapes day and nights'
-                stay='3 Days, 2 Nights'
-                image='mountains.png'
-            />
-        </PackageCards>
-        <Discover href='/'>Discover More</Discover>
+            <Title>Best Packages For You</Title>
+            <Package>
+                <PackageSelect title='Hot Deals' active={true} />
+                <PackageSelect title='Backpack' active={false} />
+                <PackageSelect title='South Asia' active={false} />
+                <PackageSelect title='United States' active={false} />
+                <PackageSelect title='Russia' active={false} />
+                <PackageSelect title='More' active={false} />
+            </Package>
+            <PackageCards>
+                <PackageCard
+                    location='Indonesia'
+                    cost='$500 / Person'
+                    tagline='Explore the Beauty of the island for 3 days and 2 nights with our travel agency'
+                    stay='3 Days, 2 Nights'
+                    image='indonesia2.png'
+                />
+                <PackageCard
+                    location='Japan'
+                    cost='$800 / Person'
+                    tagline='Enjoy the Shrimes and blossoms here in this beautiful country'
+                    stay='3 Days, 2 Nights'
+                    image='japan.png'
+                />
+                <PackageCard
+                    location='Mountains'
+                    cost='$600 / Person'
+                    tagline='Explore the majestic mountains and landscapes day and nights'
+                    stay='3 Days, 2 Nights'
+                    image='mountains.png'
+                />
+            </PackageCards>
 
-    </Container>
-  );
+
+        </Container>
+    );
 }
 
 export default Packages;
