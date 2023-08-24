@@ -45,7 +45,7 @@ function Packages() {
                 />
             </PackageCards><br /><br /><br /><br /><br /><br /><br /><br /><br /><br />
 
-            <Title>슨배님들의 데잇타</Title>
+            <Title id='feed'>슨배님들의 데잇타</Title>
             <Package>
                 <PackageSelect title='일본' active={true} />
                 <PackageSelect title='중국' active={false} />

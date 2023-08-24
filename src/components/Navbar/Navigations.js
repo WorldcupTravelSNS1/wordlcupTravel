@@ -105,7 +105,7 @@ const Navigation = () => {
         </a>
       </StyledList>
       <StyledList className="dark">
-        <a href="board" style={{ color: "white", textDecoration: "none" }}>
+        <a href="#feed" style={{ color: "white", textDecoration: "none" }}>
           <div>
             <span>F</span>
             <span>e</span>
