@@ -9,9 +9,12 @@ import { feedGetState } from '../atoms/BoardAtom';
 import './Feed.css';
 import ImageList from '../components/makeImageList/ImageList';
 import { me } from '../atoms/MeAtom';
+import { useNavigate } from 'react-router';
+import UpdateFeed from '../components/feed/FeedUpdate';
 
 export const GetFeedData = () => {
   const meData = useRecoilValue(me)
+  const nav = useNavigate()
 
   const onClickHandler = async (boardid, memberid) => {
     await apiNoToken(`http://localhost:8080/api/v1/like/${boardid}/${memberid}`, "POST", {}, {})
@@ -19,6 +22,10 @@ export const GetFeedData = () => {
 
   const onClickDeleteHandler = async (boardid) => {
     await apiWithToken(`http://localhost:8080/api/v1/board/${boardid}`, "DELETE", {}, { "Authorization": meData.token })
+  }
+
+  const onClickUpdateHandler = (boardid) => {
+    nav(`../feedupdate?boardid=${boardid}`)
   }
 
   const feedGet = useRecoilValue(feedGetState);
@@ -57,6 +64,7 @@ export const GetFeedData = () => {
               {todo.likeCount}
             </button> likes</span>
             <button onClick={e => onClickDeleteHandler(todo.id)}>delete</button>
+            <button onClick={e => onClickUpdateHandler(todo.id)}>update</button>
             <span className="feed-date">{todo.createAt}</span>
           </div>
         </div>
