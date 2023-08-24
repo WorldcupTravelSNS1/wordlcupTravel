@@ -1,30 +1,22 @@
-// Feed.js
-
 import React from 'react';
 import { useQuery } from 'react-query';
-import { apiNoToken, apiWithToken } from '../network/api';
+import { apiNoToken } from '../network/api';
 import { useRecoilValue } from 'recoil';
-import { feedGetState } from '../atoms/BoardAtom';
-
-import './Feed.css';
-import ImageList from '../components/makeImageList/ImageList';
 import { me } from '../atoms/MeAtom';
+import { useNavigate } from 'react-router';
+import './CommentList.css'; // CommentList 컴포넌트에 대한 스타일을 담은 CSS 파일을 불러옵니다.
+import ImageList from '../components/makeImageList/ImageList';
 
-export const GetBlockedFeedData = () => {
+export const BoardQueryById = () => {
     const meData = useRecoilValue(me)
+    const nav = useNavigate()
 
+    const queryParams = new URLSearchParams(window.location.search);
+    const boardId = queryParams.get('boardId'); // boardid 값을 가져옴
 
-
-    const onClickDeleteHandler = async (boardid) => {
-        await apiWithToken(`http://localhost:8080/api/v1/board/restore/${boardid}`, "DELETE", {}, { "Authorization": meData.token })
-        refetch()
-    }
-
-    const feedGet = useRecoilValue(feedGetState);
-    const { refetch, isLoading, data } = useQuery('todosRestore', () =>
+    const { isLoading, data } = useQuery('todosById', () =>
         apiNoToken(
-            `http://localhost:8080/api/v1/board/blocked?memberId=${meData.memberId}&tema=${feedGet.tema}${feedGet.title ? '&title=' + feedGet.title : ''}${feedGet.content ? '&content=' + feedGet.content : ''
-            }${feedGet.pageNumber ? '&pageNumber=' + feedGet.pageNumber : ''}${feedGet.pageSize ? '&PageSize=' + feedGet.pageSize : ''}`,
+            `http://localhost:8080/api/v1/board/${boardId}`,
             'GET',
             '',
             {}
@@ -33,6 +25,7 @@ export const GetBlockedFeedData = () => {
     if (isLoading) {
         return <span>Loading...</span>;
     }
+    console.log(data)
 
     return (
         <div className="feed-container">
@@ -54,7 +47,6 @@ export const GetBlockedFeedData = () => {
                     <div className="feed-footer">
                         <span className="feed-likes">
                             {todo.likeCount} likes</span>
-                        <button onClick={e => onClickDeleteHandler(todo.id)}>restore</button>
                         <span className="feed-date">{todo.createAt}</span>
                     </div>
                 </div>

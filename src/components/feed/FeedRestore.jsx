@@ -4,6 +4,7 @@ import { Link } from "react-router-dom"
 import './Feed.css'; // Feed 컴포넌트에 대한 스타일을 담은 CSS 파일을 불러옵니다.
 import { me } from "../../atoms/MeAtom";
 import { GetBlockedFeedData } from "../../reactqueries/BoardQueryRestore";
+import { useQuery } from "react-query";
 
 const BlockedFeed = () => {
     const [feedGet, SetFeedGet] = useRecoilState(feedGetState)
@@ -14,11 +15,19 @@ const BlockedFeed = () => {
         SetFeedGet((prev) => ({ ...prev, [name]: value }))
     }
 
+
+    const { refetch } = useQuery('todosRestore')
+    const onClickHandler = () => {
+        refetch()
+    }
+
+
     return (
         <div className="feed-container">
             <div className="feed-search">
                 <input name="title" value={feedGet.title || ""} onChange={onChangeHandler} placeholder="제목" />
                 <input name="content" value={feedGet.content || ""} onChange={onChangeHandler} placeholder="내용" />
+                <button onClick={onClickHandler}>refetch</button>
             </div>
             <div className="feed-pagination">
                 <input name="pageNumber" value={feedGet.pageNumber} onChange={onChangeHandler} placeholder="페이지 번호" />

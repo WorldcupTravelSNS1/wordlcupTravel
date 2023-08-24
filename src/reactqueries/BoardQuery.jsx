@@ -18,18 +18,25 @@ export const GetFeedData = () => {
 
   const onClickHandler = async (boardid, memberid) => {
     await apiNoToken(`http://localhost:8080/api/v1/like/${boardid}/${memberid}`, "POST", {}, {})
+    refetch()
   }
 
   const onClickDeleteHandler = async (boardid) => {
     await apiWithToken(`http://localhost:8080/api/v1/board/${boardid}`, "DELETE", {}, { "Authorization": meData.token })
+    refetch()
   }
+
+  const onClickCommentHandler = (boardid) => {
+    nav(`../comment?boardId=${boardid}`)
+  }
+
 
   const onClickUpdateHandler = (boardid) => {
     nav(`../feedupdate?boardid=${boardid}`)
   }
 
   const feedGet = useRecoilValue(feedGetState);
-  const { isLoading, data } = useQuery('todos', () =>
+  const { refetch, isLoading, data } = useQuery('todos', () =>
     apiNoToken(
       `http://localhost:8080/api/v1/board?tema=${feedGet.tema}${feedGet.title ? '&title=' + feedGet.title : ''}${feedGet.content ? '&content=' + feedGet.content : ''
       }${feedGet.pageNumber ? '&pageNumber=' + feedGet.pageNumber : ''}${feedGet.pageSize ? '&PageSize=' + feedGet.pageSize : ''}`,
@@ -64,7 +71,8 @@ export const GetFeedData = () => {
               {todo.likeCount}
             </button> likes</span>
             <button onClick={e => onClickDeleteHandler(todo.id)}>delete</button>
-            <button onClick={e => onClickUpdateHandler(todo.id)}>update</button>
+            {meData.memberId == todo.memberId ? <button onClick={e => onClickUpdateHandler(todo.id)}>update</button> : ""}
+            {meData.memberId == todo.memberId ? <button onClick={e => onClickCommentHandler(todo.id)}>comment</button> : ""}
             <span className="feed-date">{todo.createAt}</span>
           </div>
         </div>
