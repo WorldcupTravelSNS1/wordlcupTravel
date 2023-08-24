@@ -7,8 +7,8 @@ import Worldcup from "../pages/worldcup/Worldcup";
 import { world } from "../data/world"
 import Component from "../components/Component";
 import Board from "../pages/Board/Board";
-import { eastAsia } from "../data/eastAsia";
-import { southEastAsia } from "../data/southEastAsia"
+import { southEastAsia } from "../data/southEastAsia";
+import { eastAsia } from "../data/eastAisa"
 import { europe } from "../data/europe"
 import { ncsAmerica } from "../data/ncsAmerica"
 import Europe from "../pages/worldcup/Europe";
@@ -28,7 +28,7 @@ const MyRouters = () => {
         <BrowserRouter>
             <Routes>
                 <Route path="/" element={<Component />} />
-                <Route path="/board" element={<Board />} />
+                <Route path="/feed" element={<Board />} />
                 <Route path="/worldcup" element={<Worldcup country={world} />} />
                 <Route path="/worldcup/europe" element={<Europe country={data.europe} />} />
                 <Route path="/worldcup/eastasia" element={<EastAsia country={data.eastAsia} />} />

@@ -171,14 +171,32 @@ const EastAsia = ({ country }) => {
 
                 {shuffledData.length === 1 && (
                     <WinnerContainer>
-                        <h2>1등</h2>
+                        <h2>‼‼‼1등 {shuffledData[0].name}‼‼‼ <CustomButton
+                            onClick={() => {
+                                const result = window.confirm(
+                                    `${shuffledData[0].name}의 정보가 있는 장소로 이동하시겠습니까?`
+                                );
+                                if (result) {
+                                    window.location.href = `/feed/${shuffledData[0].name}`;
+                                }
+                            }}
+                        >
+                            눌러봐
+                        </CustomButton></h2>
                         <ItemImage src={shuffledData[0].image} alt={shuffledData[0].name} />
-                        <h2>{shuffledData[0].name}</h2>
+
+
                     </WinnerContainer>
+
+
+
                 )}
             </WorldcupContainer>
+
         </>
+
     );
+
 };
 
 export default EastAsia
