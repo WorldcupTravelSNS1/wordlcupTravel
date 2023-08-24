@@ -1,14 +1,13 @@
-
+import logo from './logo.svg';
 import './App.css';
-import MyRouters from './routes/MyRouters';
-
-
+import Todos, { GetFeedData } from './reactqueries/BoardQuery';
+import MyRoute from './components/routes/MyRoute';
 
 function App() {
   return (
-    <>
-      <MyRouters />
-    </>
+    <div className="App">
+      <MyRoute />
+    </div>
   );
 }
 

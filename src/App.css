@@ -12,6 +12,7 @@
     animation: App-logo-spin infinite 20s linear;
   }
 }
+
 * {
   box-sizing: border-box;
 }
@@ -45,10 +46,12 @@ a {
   from {
     transform: rotate(0deg);
   }
+
   to {
     transform: rotate(360deg);
   }
 }
+
 .board {
   display: flex;
   flex-direction: column;
@@ -115,6 +118,7 @@ a {
 .comment-form button:hover {
   background-color: #5370a2;
 }
+
 .cursor--small,
 .cursor--large,
 .cursor--text {
