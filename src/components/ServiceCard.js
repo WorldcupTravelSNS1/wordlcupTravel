@@ -1,11 +1,10 @@
 import React from "react";
 import styled from "styled-components";
 
-function ServiceCard({ title, text, image, active }) {
+function ServiceCard({ title, text, active }) {
   if (!active) {
     return (
       <ContainerInactive>
-        <Image src={require(`../assets/${image}`)} alt={image} />
         <Title>{title}</Title>
         <Text>{text}</Text>
       </ContainerInactive>
@@ -13,7 +12,6 @@ function ServiceCard({ title, text, image, active }) {
   } else {
     return (
       <Container>
-        <Image src={require(`../assets/${image}`)} alt={image} />
         <Title>{title}</Title>
         <Text>{text}</Text>
       </Container>

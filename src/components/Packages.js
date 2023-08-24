@@ -2,43 +2,91 @@ import React from "react";
 import styled from "styled-components";
 import PackageCard from "./PackageCard";
 import PackageSelect from "./PackageSelect";
+import { useNavigate } from "react-router";
 
 function Packages() {
+    const nav = useNavigate();
+
+    const goToEurope = () => {
+        nav("/worldcup/europe");
+    };
+
+    const goToNcsAmerica = () => {
+        nav("/worldcup/ncsamerica");
+    };
+
+    const goToEastAsia = () => {
+        nav("/worldcup/eastasia");
+    };
+
+    const goToSouthEastAsia = () => {
+        nav("/worldcup/seasia");
+    };
+
+
     return (
         <Container id='packages'>
-
-            <Title>Best Packages For You</Title>
-            <Package>
-                <PackageSelect title='Hot Deals' active={true} />
-                <PackageSelect title='Backpack' active={false} />
-                <PackageSelect title='South Asia' active={false} />
-                <PackageSelect title='United States' active={false} />
-                <PackageSelect title='Russia' active={false} />
-                <PackageSelect title='More' active={false} />
-            </Package>
+            <Title>대륙별 여행지 월드컵</Title>
             <PackageCards>
                 <PackageCard
-                    location='Indonesia'
-                    cost='$500 / Person'
-                    tagline='Explore the Beauty of the island for 3 days and 2 nights with our travel agency'
-                    stay='3 Days, 2 Nights'
-                    image='indonesia2.png'
+
+                    image='america.PNG' onClick={goToNcsAmerica}
                 />
                 <PackageCard
-                    location='Japan'
-                    cost='$800 / Person'
-                    tagline='Enjoy the Shrimes and blossoms here in this beautiful country'
-                    stay='3 Days, 2 Nights'
-                    image='japan.png'
+
+                    image='europe.PNG' onClick={goToEurope}
                 />
                 <PackageCard
-                    location='Mountains'
-                    cost='$600 / Person'
-                    tagline='Explore the majestic mountains and landscapes day and nights'
-                    stay='3 Days, 2 Nights'
-                    image='mountains.png'
+                    image='eastasia.PNG' onClick={goToEastAsia}
                 />
-            </PackageCards>
+                <PackageCard
+
+                    image='seasia.PNG' onClick={goToSouthEastAsia}
+                />
+            </PackageCards><br /><br /><br /><br /><br /><br /><br /><br /><br /><br />
+
+            <Title>슨배님들의 데잇타</Title>
+            <Package>
+                <PackageSelect title='일본' active={true} />
+                <PackageSelect title='중국' active={false} />
+                <PackageSelect title='대한민국' active={false} />
+                <PackageSelect title='대만' active={false} />
+                <PackageSelect title='홍콩' active={false} />
+                <PackageSelect title='뉴질랜드' active={false} />
+                <PackageSelect title='몽골' active={false} />
+                <PackageSelect title='호주' active={false} />
+            </Package>
+            <Package>
+                <PackageSelect title='동티모르' active={true} />
+                <PackageSelect title='라오스' active={false} />
+                <PackageSelect title='말레이시아' active={false} />
+                <PackageSelect title='미얀마' active={false} />
+                <PackageSelect title='베트남' active={false} />
+                <PackageSelect title='태국' active={false} />
+                <PackageSelect title='인도네시아' active={false} />
+                <PackageSelect title='필리핀' active={false} />
+            </Package>
+            <Package>
+                <PackageSelect title='미국' active={true} />
+                <PackageSelect title='캐나다' active={false} />
+                <PackageSelect title='멕시코' active={false} />
+                <PackageSelect title='브라질' active={false} />
+                <PackageSelect title='아르헨티나' active={false} />
+                <PackageSelect title='우루과이' active={false} />
+                <PackageSelect title='칠레' active={false} />
+                <PackageSelect title='콜롬비아' active={false} />
+            </Package>
+            <Package>
+                <PackageSelect title='네덜란드' active={true} />
+                <PackageSelect title='독일' active={false} />
+                <PackageSelect title='스위스' active={false} />
+                <PackageSelect title='스페인' active={false} />
+                <PackageSelect title='영국' active={false} />
+                <PackageSelect title='프랑스' active={false} />
+                <PackageSelect title='튀르키예' active={false} />
+                <PackageSelect title='이탈리아' active={false} />
+            </Package>
+
 
 
         </Container>
@@ -73,7 +121,8 @@ const Package = styled.div`
     width: 100vw;
     max-width: 1024px;
     display: flex;
-    justify-content: space-around;
+    flex-direction: row;
+    justify-content: space-between;
     align-items: center;
     padding: 1vw 7vw;
     @media (max-width: 480px) {
@@ -87,16 +136,17 @@ const Package = styled.div`
 
 const PackageCards = styled.div`
     display: flex;
+    flex-wrap: wrap;
     justify-content: center;
     align-items: center;
     flex-direction: column;
     @media (min-width: 768px) {
         flex-direction: row
     }
-    @media (max-width: 480px) {
-        height: 100%;
-        width: 100%;
-        padding: 32px 32px;
+    @media (max-width: 300px) {
+        height: 70%;
+        width: 70%;
+        padding: 10px 10px;
         justify-content: center;
         align-items: center;
         margin: 0;

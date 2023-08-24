@@ -6,55 +6,7 @@ import "../styles/footer.css";
 function Footer() {
   return (
     <Container style={{ background: "#333" }}>
-      <Left>
-        <Logo src={footerLogo} alt="" />
-        <LeftText>
-          Book your trip in minute, get full Control for much longer.
-        </LeftText>
-      </Left>
 
-      <Mid className="links">
-        <List className="list">
-          <ListTitle className="m-2">Company</ListTitle>
-          <a href="#home" className="m-2">
-            Home
-          </a>
-          <a href="#about-us" className="m-2">
-            About Us
-          </a>
-          <a href="#home" className="m-2">
-            Careers
-          </a>
-        </List>
-        <List className="list">
-          <ListTitle className="m-2">Contact</ListTitle>
-          <a href="#home" className="m-2">
-            Help/FAQs
-          </a>
-          <a href="#home" className="m-2">
-            Press
-          </a>
-          <a href="#home" className="m-2">
-            Affiliates
-          </a>
-        </List>
-        <List className="list">
-          <ListTitle className="m-2">More</ListTitle>
-          <a href="#home" className="m-2">
-            Airline Fees
-          </a>
-          <a href="#home" className="m-2">
-            Airline
-          </a>
-          <a href="#home" className="m-2">
-            Low Fare Trips
-          </a>
-        </List>
-      </Mid>
-
-      <Right>
-        <RightText>Discover Our App</RightText>
-      </Right>
     </Container>
   );
 }

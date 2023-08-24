@@ -30,7 +30,7 @@ function Navbar() {
     <Nav>
       <Left>
         <a href="/">
-          <Logo src={require("../../assets/TravelGo.png")} />
+          <Logo src={require("../../assets/TravelTreble.png")} />
         </a>
       </Left>
       <Navigation />
@@ -53,7 +53,7 @@ function Navbar() {
     <FixedNav>
       <Left>
         <a href="/">
-          <Logo src={require("../../assets/TravelGo.png")} />
+          <Logo src={require("../../assets/TravelTreble.png")} />
         </a>
       </Left>
       <Navigation />
@@ -147,7 +147,7 @@ const Left = styled.div`
 `;
 
 const Logo = styled.img`
-  height: 50%;
+  height: 70px;
   cursor: pointer;
 
   @media (max-width: 600px) {

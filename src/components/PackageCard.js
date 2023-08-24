@@ -1,24 +1,26 @@
 import React from 'react'
+import { useNavigate } from 'react-router';
 import styled from 'styled-components'
 
-function PackageCard({image, stay, cost, tagline, location}) {
-  return (
-    <Container>
-        <Background src={require(`../assets/${image}`)} />
-        <Lower>
-            <Top>
-                <Stay>{stay}</Stay>
-                <Cost>{cost}</Cost>
-            </Top>
-            <Mid>{tagline}</Mid>
-            <Bottom>
-                <Location><img height={14} src={require('../assets/location-2.png')} alt='' />  {location}</Location>
-                <More>Know More</More>
-            </Bottom>
-        </Lower>
-        
-    </Container>
-  )
+function PackageCard({ image, onClick }) {
+    const nav = useNavigate();
+
+    const handleClick = () => {
+        if (onClick) {
+            onClick();
+        }
+        const urls = [
+            '/worldcup/europe',
+            '/worldcup/eastasia',
+            '/worldcup/ncsamerica',
+            '/worldcup/seasia'
+        ];
+    }
+    return (
+        <Container onClick={handleClick}>
+            <Background src={require(`../assets/${image}`)} />
+        </Container>
+    )
 }
 
 export default PackageCard

@@ -4,7 +4,6 @@ import { userState } from '../recoil/atom';
 import axios from "axios";
 const KakaoCheck = () => {
     const [user, setUser] = useRecoilState(userState);
-    const [tokenFetched, setTokenFetched] = useState(false);
 
     const Rest_api_key = '0481608acb1964ced77daf1090a65a04'
     const redirect_uri = 'http://localhost:3000'
@@ -16,7 +15,7 @@ const KakaoCheck = () => {
 
         if (code) {
             const data = fetchToken(code);
-            console.log(data)
+
 
         }
     }, []);
@@ -37,7 +36,7 @@ const KakaoCheck = () => {
             }
         )
         const userInfo = await loadToken(res.data.access_token)
-        console.log(userInfo)
+
     }
 
     const loadToken = async (accessToken) => {

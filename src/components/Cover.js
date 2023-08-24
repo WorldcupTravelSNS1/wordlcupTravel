@@ -1,23 +1,33 @@
 import React, { useEffect, useState } from "react";
 import styled from "styled-components";
 import Cursor from "./cursor/Cursor";
-import Worldcup from "../pages/Worldcup";
+import Worldcup from "../pages/worldcup/Worldcup";
 import { world } from "../data/world";
 
 import { useNavigate } from "react-router";
 import cupImage from "../assets/cup.PNG"
 function Cover() {
-  const [showCursor, setShowCursor] = useState(true);
+
   const nav = useNavigate();
 
   const goToWorldcup = () => {
-    setShowCursor(false);
-    nav("/worldcup");
+    const urls = [
+      "/worldcup/europe",
+      "/worldcup/seasia",
+      "/worldcup/eastasia",
+      "/worldcup/ncsamerica"
+    ];
+
+    const randomIndex = Math.floor(Math.random() * urls.length);
+    const randomUrl = urls[randomIndex];
+
+    nav(randomUrl);
   };
+
 
   return (
     <>
-      {showCursor && <Cursor />}
+      <Cursor />
 
       <Container id="home">
         <CoverVideo>

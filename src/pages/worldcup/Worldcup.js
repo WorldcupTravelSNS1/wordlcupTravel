@@ -2,8 +2,8 @@ import React, { useState, useRef, useEffect } from "react";
 import styled from "styled-components";
 import ConfettiGenerator from "confetti-js";
 import { firework } from "./fireworkfunctions.js";
-import vsImage from "../assets/VS.png";
-import Cursor from "../components/cursor/Cursor";
+import vsImage from "/wordcuptravel/wordlcupTravel/src/assets/VS.png"
+import Cursor from "../../components/cursor/Cursor.jsx";
 
 const WorldcupContainer = styled.div`
   display: flex;
@@ -88,7 +88,7 @@ const Fireworks = styled.div`
   filter: brightness(150%);
 `;
 
-const Worldcup = ({ contry }) => {
+const Worldcup = ({ country }) => {
   const shuffleArray = (array) => {
     const shuffled = [...array];
     for (let i = shuffled.length - 1; i > 0; i--) {
@@ -98,7 +98,7 @@ const Worldcup = ({ contry }) => {
     return shuffled;
   };
 
-  const [shuffledData, setShuffledData] = useState(() => shuffleArray(contry));
+  const [shuffledData, setShuffledData] = useState(() => shuffleArray(country));
   const [showFireworks, setShowFireworks] = useState(false);
   const confettiCanvasRef = useRef(null);
   useEffect(() => {

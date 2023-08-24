@@ -14,7 +14,7 @@ function Component() {
     <div className="App">
       <Navbar />
       <Cover />
-      <Service />
+      <Service /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br />
       <Packages /> {/* 수정필요 */}
       <Footer />
       <KakaoCheck />

@@ -91,7 +91,7 @@ const Navigation = () => {
         </a>
       </StyledList>
       <StyledList className="dark">
-        <a href="worldcup" style={{ color: "white", textDecoration: "none" }}>
+        <a href="#packages" style={{ color: "white", textDecoration: "none" }}>
           <div>
             <span>W</span>
             <span>o</span>

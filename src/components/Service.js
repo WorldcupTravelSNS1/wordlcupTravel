@@ -5,28 +5,29 @@ import ServiceCard from "./ServiceCard";
 const cards = [
   {
     title: "WorldCup",
-    text: "여러분이 가장 좋아하는 여행지는 어디신가요? 가보고싶은 여행지는 어디신가요? 여러분이 선택할 수 있습니다.",
-    image: "ticket.png",
+    text: <>
+      여행이 가고싶은데 어디를 가야할지 모르겠어요?<br />
+      결정을 못하겠어요??????????????<br />
+      대륙별로 모아놨어요.<br />
+      밑에서 클릭만해요.
+    </>
+    ,
     active: false,
   },
   {
     title: "Feed",
-    text: "여러분이 갔던 여행지를 자랑하세요! 당신의 경험이 누군가에겐 좋은 교보재가 됩니다.",
-    image: "hotel.png",
+    text: <>
+      선배 모험가분들의 막대한 자료를 모아놨어요<br />
+      밑에서 클릭만해요.
+    </>,
     active: false,
-  },
-  {
-    title: "Follow",
-    text: "세계를 탐험하는 사람들이 있습니다. 여러분에게 도움이 될것입니다. 팔로우하고 게시물을 확인하세요.",
-    image: "tour.png",
-    active: false,
-  },
+  }
 ];
 
 function Service() {
   return (
     <Container id="about-us">
-      <ServiceTitle>Our Services</ServiceTitle>
+      <ServiceTitle>여기는 뭐하는 곳인가요?</ServiceTitle>
       <ServiceCardContainer>
         {cards.map((card) => (
           <ServiceCard
