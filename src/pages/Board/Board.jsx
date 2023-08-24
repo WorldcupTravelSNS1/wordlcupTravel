@@ -1,6 +1,5 @@
 import { useEffect, useState } from "react";
 import BoardData from "../../data/BoardData";
-import CursorEffect from "./CursorEffect";
 import Cursor from "./Cursor";
 
 const CommentForm = ({ postId, onComment }) => {

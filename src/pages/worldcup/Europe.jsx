@@ -1,6 +1,5 @@
 
 import "./Worldcup.css"
-import europe from "../../data/europe";
 import vsImage from "/wordcuptravel/wordlcupTravel/src/assets/VS.png"
 import { useState, useRef, useEffect } from "react";
 import { firework } from "./fireworkfunctions.js";

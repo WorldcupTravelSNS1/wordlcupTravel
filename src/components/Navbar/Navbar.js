@@ -37,7 +37,7 @@ function Navbar() {
       {openNav && <MobileNavigation />}
       <Right>
 
-        <KakaoLogin href="/signin" style={{ textDecoration: "none" }}>
+        <KakaoLogin href="/signin" style={{ textDecoration: "none" , }}>
           Login
         </KakaoLogin>
       </Right>

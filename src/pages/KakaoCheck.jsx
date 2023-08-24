@@ -1,9 +1,10 @@
 import { useEffect, useState } from "react"
 import { useRecoilState } from 'recoil';
-import { userState } from '../recoil/atom';
+
 import axios from "axios";
+import { me } from "../atoms/MeAtom";
 const KakaoCheck = () => {
-    const [user, setUser] = useRecoilState(userState);
+    const [user, setUser] = useRecoilState(me);
 
     const Rest_api_key = '0481608acb1964ced77daf1090a65a04'
     const redirect_uri = 'http://localhost:3000'

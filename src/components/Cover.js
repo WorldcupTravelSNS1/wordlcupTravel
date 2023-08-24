@@ -1,11 +1,8 @@
 import React, { useEffect, useState } from "react";
 import styled from "styled-components";
 import Cursor from "./cursor/Cursor";
-import Worldcup from "../pages/worldcup/Worldcup";
-import { world } from "../data/world";
-
 import { useNavigate } from "react-router";
-import cupImage from "../assets/cup.PNG"
+
 function Cover() {
 
   const nav = useNavigate();

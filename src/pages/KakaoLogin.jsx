@@ -1,9 +1,5 @@
-import { useEffect, useState } from "react"
-import kakaoImage from "../assets/kakao.png"
-import { useRecoilState } from 'recoil';
-import { userState } from '../recoil/atom';
 
-import axios from "axios"
+import kakaoImage from "../assets/kakao.png"
 
 const KakaoLogin = () => {
     const Rest_api_key = '0481608acb1964ced77daf1090a65a04'
