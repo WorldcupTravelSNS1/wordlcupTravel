@@ -59,18 +59,20 @@ const KakaoCheck = () => {
         const res = await axios.get(`http://localhost:8080/api/v1/auth?email=${email}&nickname=${nickname}`,
         )
         console.log(res)
-
         setUser({
-            id: res.data.id,
+            memberId: res.data.id,
             nickname: res.data.nickname,
-            token: res.data.token
+            token: res.data.token,
+            isLogin: true
         });
-        console.log(res.data.id, res.data.nickname, res.data.token)
+
 
 
         return res.data
 
+
     }
+    console.log(user)
     return <></>
 }
 export default KakaoCheck

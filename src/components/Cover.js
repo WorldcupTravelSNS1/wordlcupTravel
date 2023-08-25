@@ -41,7 +41,14 @@ function Cover() {
           <CoverTitle>작정하고 떠나라</CoverTitle>
           <CoverTextu>🚀어느 나라로?🚀</CoverTextu>
           <CoverText>여행지 월드컵 해보던가</CoverText>
-          <CoverButton onClick={goToWorldcup}>시 작</CoverButton>
+          <div>
+            <StyledButton onClick={goToWorldcup}>
+              <BtnText>READY?</BtnText>
+              <BtnTwo>
+                <BtnText2>GO!</BtnText2>
+              </BtnTwo>
+            </StyledButton>
+          </div>
         </CoverBody>
         <BottomFade />
       </Container>
@@ -111,25 +118,53 @@ const CoverTextu = styled.div`
     padding-top: 2vh;
   }
 `;
-const CoverButton = styled.div`
-  cursor: pointer;
-  clear: both;
-  border-radius: 3px;
-  padding: 20px 60px;
-  margin-top: 4vh;
-  display: inline-block;
-  color: black;
-  transition: all 0.8s, color 0.3s 0.3s;
-  cursor: pointer;
-  background: white;
-  color: black;
-  font-family: Impact, Haettenschweiler, "Arial Narrow Bold", sans-serif;
 
-  :hover {
-    box-shadow: -300px 0 0 0 rgb(120, 178, 167) inset;
+const StyledButton = styled.div`
+  background: #3D4C53;
+  margin: 20px auto;
+  width: 200px;
+  height: 50px;
+  overflow: hidden;
+  text-align: center;
+  transition: 0.2s;
+  cursor: pointer;
+  border-radius: 3px;
+  box-shadow: 0px 1px 2px rgba(0, 0, 0, 0.2);
+  position: relative;
+
+  &:hover {
+    box-shadow: 0px 5px 6px rgba(0, 0, 0, 0.3);
+    .btnTwo {
+      left: -130px;
+    }
+    .btnText {
+      margin-left: 65px;
+    }
   }
-  @media (max-width: 480px) {
-    padding: 10px 60px;
-    margin-top: 3vh;
+
+  &:active {
+    box-shadow: 0px 5px 6px rgba(0, 0, 0, 0.3);
   }
+`;
+
+const BtnTwo = styled.div`
+  position: relative;
+  width: 200px;
+  height: 100px;
+  margin-top: -100px;
+  padding-top: 2px;
+  background: #26A69A;
+  left: -250px;
+  transition: 0.3s;
+`;
+
+const BtnText = styled.p`
+  color: white;
+  transition: 0.3s;
+`;
+
+const BtnText2 = styled.p`
+  margin-top: 63px;
+  margin-right: -130px;
+  color: #FFF;
 `;

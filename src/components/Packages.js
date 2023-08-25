@@ -4,6 +4,8 @@ import PackageCard from "./PackageCard";
 import PackageSelect from "./PackageSelect";
 import { useNavigate } from "react-router";
 
+
+
 function Packages() {
     const nav = useNavigate();
 
@@ -30,22 +32,22 @@ function Packages() {
             <PackageCards>
                 <PackageCard
 
-                    image='america.PNG' onClick={goToNcsAmerica}
+                    image='america.jpg' onClick={goToNcsAmerica}
                 />
                 <PackageCard
 
-                    image='europe.PNG' onClick={goToEurope}
+                    image='europe.jpg' onClick={goToEurope}
                 />
                 <PackageCard
-                    image='eastasia.PNG' onClick={goToEastAsia}
+                    image='eastasia.jpg' onClick={goToEastAsia}
                 />
                 <PackageCard
 
-                    image='seasia.PNG' onClick={goToSouthEastAsia}
+                    image='seasia.jpg' onClick={goToSouthEastAsia}
                 />
             </PackageCards><br /><br /><br /><br /><br /><br /><br /><br /><br /><br />
 
-            <Title id='feed'>슨배님들의 데잇타</Title>
+            <Title id='feed'>피드</Title>
             <Package>
                 <PackageSelect title='일본' active={true} />
                 <PackageSelect title='중국' active={false} />
@@ -118,7 +120,7 @@ const Title = styled.div`
 `
 
 const Package = styled.div`
-    width: 100vw;
+    width: 80vw;
     max-width: 1024px;
     display: flex;
     flex-direction: row;

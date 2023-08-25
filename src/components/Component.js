@@ -15,7 +15,7 @@ function Component() {
       <Navbar />
       <Cover />
       <Service /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br />
-      <Packages /> {/* 수정필요 */}
+      <Packages />
       <Footer />
       <KakaoCheck />
     </div>

@@ -6,6 +6,9 @@ import { firework } from "./fireworkfunctions.js";
 import styled from "styled-components";
 import Cursor from "../../components/cursor/Cursor.jsx";
 import ConfettiGenerator from "confetti-js";
+import { useNavigate } from "react-router";
+import { useRecoilState } from "recoil";
+import { feedGetState } from "../../atoms/BoardAtom";
 
 const WorldcupContainer = styled.div`
   display: flex;
@@ -92,6 +95,8 @@ const Fireworks = styled.div`
 
 
 const NcsAmerica = ({ country }) => {
+    const nav = useNavigate()
+    const [feedGet, setFeedGet] = useRecoilState(feedGetState)
 
 
     const shuffleArray = (array) => {
@@ -173,11 +178,13 @@ const NcsAmerica = ({ country }) => {
                     <WinnerContainer>
                         <h2>‼‼‼1등 {shuffledData[0].name}‼‼‼ <CustomButton
                             onClick={() => {
+
                                 const result = window.confirm(
                                     `${shuffledData[0].name}의 정보가 있는 장소로 이동하시겠습니까?`
                                 );
                                 if (result) {
-                                    window.location.href = `/feed/${shuffledData[0].name}`;
+                                    setFeedGet({ feedGet, ["tema"]: shuffledData[0].name })
+                                    nav("../../feed")
                                 }
                             }}
                         >

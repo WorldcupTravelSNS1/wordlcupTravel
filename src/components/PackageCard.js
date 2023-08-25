@@ -2,7 +2,7 @@ import React from 'react'
 import { useNavigate } from 'react-router';
 import styled from 'styled-components'
 
-function PackageCard({ image, onClick }) {
+function PackageCard({ image, onClick, stay, cost, tagline, location }) {
     const nav = useNavigate();
 
     const handleClick = () => {
@@ -19,7 +19,20 @@ function PackageCard({ image, onClick }) {
     return (
         <Container onClick={handleClick}>
             <Background src={require(`../assets/${image}`)} />
+            <Lower>
+                <Top>
+                    <Stay>{stay}</Stay>
+                    <Cost>{cost}</Cost>
+                </Top>
+                <Mid>{tagline}</Mid>
+                <Bottom>
+                    <Location><img height={14} src={require('../assets/location-2.png')} alt='' />  {location}</Location>
+
+                </Bottom>
+            </Lower>
+
         </Container>
+
     )
 }
 
@@ -98,7 +111,6 @@ const Mid = styled.div`
     margin: 10px 0;
     font-size: 12px;
 `
-
 const Bottom = styled.div`
     margin-top: 2vh;
     display: flex;

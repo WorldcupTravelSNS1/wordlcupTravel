@@ -4,53 +4,25 @@ import styled from 'styled-components'
 function PackageSelect({ title, active }) {
   if (active)
     return (
-      <ContainerActive>{title}</ContainerActive>
+      <ButtonContainer>
+        <StyledButton active={active}>{title}</StyledButton>
+      </ButtonContainer>
     )
   else return (
-    <ContainerInactive>{title}</ContainerInactive>
+    <ButtonContainer>
+      <StyledButton active={active}>{title}</StyledButton>
+    </ButtonContainer>
   )
 }
 
 export default PackageSelect
 
-const containerStyles = `
-  padding: 1.5vh 2vw;
-  border-radius: 7px;
-  font-size: 2vh;
-  font-weight: 500;
-  color: white;
-  cursor: pointer;
-  text-align: center;
-  text-decoration: none;
+const ButtonContainer = styled.div`
   display: inline-block;
-  line-height: 2.5vh;
-  &:hover {
-    color: white;
-  }
-`
-
-const ContainerActive = styled.a`
-  background-color: #00A651;
-${containerStyles}
-
-
-  padding: 1.5vh 2vw;
-  border-radius: 7px;
-  font-size: 2vh;
-  font-weight: 500;
-  color: white;
-  cursor: pointer;
-  text-align: center;
-  text-decoration: none;
-  display: inline-block; /* Add this line */
-  &:hover {
-    color: white;
-  }
 `;
 
-const ContainerInactive = styled.a`
-  background-color: #666666;
-  ${containerStyles}
+const StyledButton = styled.a`
+  display: inline-block;
   padding: 1.5vh 2vw;
   border-radius: 7px;
   font-size: 2vh;
@@ -59,8 +31,10 @@ const ContainerInactive = styled.a`
   cursor: pointer;
   text-align: center;
   text-decoration: none;
-  display: inline-block; /* Add this line */
+  line-height: 2.5vh;
+  background-color: ${props => (props.active ? '#2d9c36' : '#2d9c36')};
   &:hover {
-    color: white;
+    box-shadow: ${props =>
+    props.active ? '0px 0px 0px 5px #21825B' : '0px 0px 0px 5px #666666'};
   }
 `;

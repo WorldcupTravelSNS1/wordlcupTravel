@@ -49,12 +49,12 @@ const Container = styled.div`
 const ContainerInactive = styled.div`
   border-radius: 6px;
   height: 25vh;
-  width: 25vw;
+
   display: flex;
   flex-direction: column;
-  justify-content: center;
+
   padding: 0 2vw;
-  background: #f0f0f0;
+
   transition: all 0.2s ease-in-out;
   box-shadow: 6px -6px 20px rgba(88, 88, 88, 0.16),
     -6px 6px 20px rgba(88, 88, 88, 0.16), -6px -6px 20px rgba(88, 88, 88, 0.16),
