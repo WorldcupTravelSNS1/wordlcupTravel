@@ -27,7 +27,7 @@ const BlockedFeed = () => {
             <div className="feed-search">
                 <input name="title" value={feedGet.title || ""} onChange={onChangeHandler} placeholder="제목" />
                 <input name="content" value={feedGet.content || ""} onChange={onChangeHandler} placeholder="내용" />
-                <button onClick={onClickHandler}>refetch</button>
+                <button className="button-main" onClick={onClickHandler}>refetch</button>
             </div>
             <div className="feed-pagination">
                 <input name="pageNumber" value={feedGet.pageNumber} onChange={onChangeHandler} placeholder="페이지 번호" />

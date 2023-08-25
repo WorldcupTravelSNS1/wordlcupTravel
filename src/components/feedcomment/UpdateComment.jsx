@@ -3,6 +3,21 @@ import { useRecoilValue } from "recoil"
 import { me } from "../../atoms/MeAtom"
 import { apiWithToken } from "../../network/api"
 import { useQuery, useQueryClient } from "react-query"
+import styled from "styled-components";
+
+
+const UpdateButton = styled.button`
+  background-color: #3A6DF0;
+  border: none;
+  padding: 8px 26px;
+  color: #fff;
+  border-radius: 20px;
+  margin-top: 16px;
+  cursor: pointer;
+  transition: 0.3s;
+  white-space: nowrap;
+`;
+
 
 const UpdateComment = ({ commentId }) => {
     const [comment, setComment] = useState("")
@@ -21,7 +36,7 @@ const UpdateComment = ({ commentId }) => {
     return <>
         <form onSubmit={onSubmitHandelr}>
             <input onChange={e => setComment(e.target.value)} />
-            <button type="submit">전송</button>
+            <UpdateButton type="submit">전송</UpdateButton>
         </form>
     </>
 

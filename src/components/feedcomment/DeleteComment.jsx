@@ -2,7 +2,20 @@ import { useRecoilValue } from "recoil"
 import { apiWithToken } from "../../network/api"
 import { me } from "../../atoms/MeAtom"
 import { useQueryClient } from "react-query"
+import styled from "styled-components";
 
+
+const UpdateButton = styled.button`
+  background-color: #3A6DF0;
+  border: none;
+  padding: 8px 26px;
+  color: #fff;
+  border-radius: 20px;
+  margin-top: 16px;
+  cursor: pointer;
+  transition: 0.3s;
+  white-space: nowrap;
+`;
 
 const DeleteComment = ({ commentId }) => {
 
@@ -19,7 +32,7 @@ const DeleteComment = ({ commentId }) => {
 
 
     return <>
-        <button onClick={onClickHandler}>삭제</button>
+        <UpdateButton onClick={onClickHandler}>삭제</UpdateButton>
     </>
 }
 

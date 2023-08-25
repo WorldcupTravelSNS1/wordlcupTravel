@@ -5,6 +5,20 @@ import { me } from "../../atoms/MeAtom";
 import { useNavigate } from "react-router";
 import { useQuery, useQueryClient } from "react-query";
 import { async } from "q";
+import styled from "styled-components";
+
+
+const UpdateButton = styled.button`
+  background-color: #3A6DF0;
+  border: none;
+  padding: 8px 26px;
+  color: #fff;
+  border-radius: 20px;
+  margin-top: 16px;
+  cursor: pointer;
+  transition: 0.3s;
+  white-space: nowrap;
+`;
 
 
 const PostComment = () => {
@@ -34,7 +48,7 @@ const PostComment = () => {
     return <>
         <form onSubmit={onSubmitHandelr}>
             <input name="comment" value={comment} onChange={e => setComment(e.target.value)} placeholder="커맨트 작성" />
-            <button type="submit">등록하기</button>
+            <UpdateButton type="submit">등록하기</UpdateButton>
         </form>
 
     </>

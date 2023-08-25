@@ -19,22 +19,22 @@ const Feed = () => {
     const onClickHandler = () => {
         refetch()
     }
-    return (
+    return (<>
         <div className="feed-container">
             <button className="button-main">여행지검색</button>
             <div className="feed-search">
-                <form>
-                    <input name="title"
-                        value={feedGet.title || ""}
-                        onChange={onChangeHandler}
-                        placeholder="제목" />
-                    <input name="content"
-                        value={feedGet.content || ""}
-                        onChange={onChangeHandler}
-                        placeholder="내용" />
-                    <input name="tema" value={feedGet.tema || ""} onChange={onChangeHandler} placeholder="테마" />
-                    <button className="button-sub" onClick={onClickHandler}>Refetch</button>
-                </form>
+
+                <input name="title"
+                    value={feedGet.title || ""}
+                    onChange={onChangeHandler}
+                    placeholder="제목" />
+                <input name="content"
+                    value={feedGet.content || ""}
+                    onChange={onChangeHandler}
+                    placeholder="내용" />
+                <input name="tema" value={feedGet.tema || ""} onChange={onChangeHandler} placeholder="테마" />
+                <button className="button-main" onClick={onClickHandler}>Refetch</button>
+
             </div>
             <div className="feed-pagination">
                 <input name="pageNumber" value={feedGet.pageNumber} onChange={onChangeHandler} placeholder="페이지 번호" />
@@ -42,10 +42,11 @@ const Feed = () => {
             </div>
 
 
-            <Link to="/feedpost" className="button-sub">Go to Feed Post</Link>
-            <Link to="/feedrestore" className="button-sub">Go to Restore Feed</Link>
-            <GetFeedData />
+            <Link to="/feedpost" className="button-main">Go to Feed Post</Link>
+            <Link to="/feedrestore" className="button-main">Go to Restore Feed</Link>
         </div>
+        <GetFeedData />
+    </>
     );
 }
 
