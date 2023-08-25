@@ -53,7 +53,7 @@ function Packages() {
             </PackageCards>
             </marquee>
 
-            <Title id='feed'>피드</Title>
+            <Title id='feed'>여행지 피드</Title>
             <Package>
                 <PackageSelect title='일본' active={false} />
                 <PackageSelect title='중국' active={false} />
@@ -110,8 +110,9 @@ const Container = styled.div`
     flex-direction: column;
     justify-content: space-around;
     align-items: center;
-    background: #ECF1F0;
+    background: rgba(255, 255, 255, 0.1);
     margin-top: 5vh;
+    z-index: 1;
     @media (min-width: 768px) {
         height: 100vh;
     }
@@ -133,6 +134,8 @@ const Package = styled.div`
     justify-content: space-between;
     align-items: center;
     padding: 1vw 7vw;
+    
+    
     @media (max-width: 480px) {
         width: 100%;
         height: 100%;
@@ -145,6 +148,7 @@ const Package = styled.div`
 const PackageCards = styled.div`
 margin-top: 7.5vh;
 display: flex;
+
 /* flex-wrap: wrap; */ /* 주석 처리 */
 justify-content: center;
 

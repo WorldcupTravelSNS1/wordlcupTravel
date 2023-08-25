@@ -17,7 +17,7 @@ const cards = [
   {
     title: "Feed",
     text: <>
-      선배 모험가분들의 막대한 자료를 모아놨어요<br />
+      선배 여행자분들의 방대한 자료를 모아놨어요<br />
       밑에서 클릭만해요.
     </>,
     active: false,

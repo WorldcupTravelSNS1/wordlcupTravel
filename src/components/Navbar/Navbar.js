@@ -37,7 +37,7 @@ function Navbar() {
       {openNav && <MobileNavigation />}
       <Right>
 
-        <KakaoLogin href="/signin" style={{ textDecoration: "none" , }}>
+        <KakaoLogin href="/signin" style={{ textDecoration: "none", }}>
           Login
         </KakaoLogin>
       </Right>
@@ -88,6 +88,7 @@ const Nav = styled.div`
   height: 5rem;
   backdrop-filter: blur(5px);
   box-shadow: -2px 2px 10px -3px #fff;
+  font-family: "Montserrat", sans-serif;
   @media (max-width: 600px) {
     padding: 0 1rem;
   }

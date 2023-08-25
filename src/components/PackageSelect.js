@@ -29,6 +29,7 @@ const ButtonContainer = styled.div`
 
 const StyledButton = styled.button`
   display: inline-block;
+  
   padding: 1.5vh 2vw;
   border-radius: 7px;
   font-size: 2vh;
