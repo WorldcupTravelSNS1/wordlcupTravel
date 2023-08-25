@@ -21,19 +21,29 @@ const Feed = () => {
     }
     return (
         <div className="feed-container">
+            <button className="button-main">여행지검색</button>
             <div className="feed-search">
-                <input name="title" value={feedGet.title || ""} onChange={onChangeHandler} placeholder="제목" />
-                <input name="content" value={feedGet.content || ""} onChange={onChangeHandler} placeholder="내용" />
-                <input name="tema" value={feedGet.tema || ""} onChange={onChangeHandler} placeholder="테마" />
-                <button onClick={onClickHandler}>refetch</button>
+                <form>
+                    <input name="title"
+                        value={feedGet.title || ""}
+                        onChange={onChangeHandler}
+                        placeholder="제목" />
+                    <input name="content"
+                        value={feedGet.content || ""}
+                        onChange={onChangeHandler}
+                        placeholder="내용" />
+                    <input name="tema" value={feedGet.tema || ""} onChange={onChangeHandler} placeholder="테마" />
+                    <button className="button-sub" onClick={onClickHandler}>Refetch</button>
+                </form>
             </div>
             <div className="feed-pagination">
                 <input name="pageNumber" value={feedGet.pageNumber} onChange={onChangeHandler} placeholder="페이지 번호" />
                 <input name="pageSize" value={feedGet.pageSize} onChange={onChangeHandler} placeholder="페이지 사이즈" />
             </div>
 
-            <Link to="/feedpost" className="feed-post-link">Go to Feed Post</Link>
-            <Link to="/feedrestore" className="feed-post-link">Go to Restore Feed</Link>
+
+            <Link to="/feedpost" className="button-sub">Go to Feed Post</Link>
+            <Link to="/feedrestore" className="button-sub">Go to Restore Feed</Link>
             <GetFeedData />
         </div>
     );

@@ -22,6 +22,7 @@ export const BoardQueryById = () => {
             {}
         )
     );
+
     if (isLoading) {
         return <span>Loading...</span>;
     }
