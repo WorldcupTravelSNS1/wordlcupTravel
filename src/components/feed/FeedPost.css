@@ -1,60 +1,74 @@
-/* FeedPost.css */
+body {
+    background: linear-gradient(45deg, #9dc0f2, #d7e9ed);
+    height: 100vh;
+    font-family: "Montserrat", sans-serif;
+}
+
 .feed-post-container {
-    width: 100%;
-    max-width: 600px;
-    margin: 0 auto;
-    padding: 20px;
-    border: 1px solid #ddd;
-    background-color: #fff;
-    border-radius: 10px;
-    box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1);
+    position: absolute;
+    transform: translate(-50%, -50%);
+    top: 30%;
+    left: 50%;
+    z-index: 1;
+    margin-top: 80px;
 }
 
 .feed-post-title {
     font-size: 24px;
     margin-bottom: 20px;
+    align-items: center;
+    justify-content: center;
 }
 
 .feed-post-form {
     display: flex;
     flex-direction: column;
-}
-
-.feed-post-input {
-    margin-bottom: 20px;
+    gap: 15px;
 }
 
 .feed-post-label {
-    font-size: 16px;
+    font-weight: bold;
     margin-bottom: 5px;
 }
 
-.feed-post-text-input {
-    padding: 10px;
-    font-size: 16px;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-}
-
+.feed-post-text-input,
 .feed-post-textarea {
     padding: 10px;
-    font-size: 16px;
     border: 1px solid #ccc;
-    border-radius: 5px;
+    border-radius: 4px;
+    width: 90%;
     resize: vertical;
 }
 
 .feed-post-button {
-    padding: 10px 20px;
-    font-size: 18px;
-    background-color: #3498db;
-    color: #fff;
-    border: none;
-    border-radius: 5px;
+    padding: 10px;
+    width: 100%;
+    background-color: #C81AD1;
+    border: 1px solid;
+    border-radius: 4px;
+    color: #444444;
+    font-size: 1rem;
+    font-weight: 1000;
+    letter-spacing: 0.2rem;
+    text-align: center;
+    outline: none;
     cursor: pointer;
-    transition: background-color 0.2s;
+    transition: background-color 0.3s, box-shadow 0.2s;
+    box-shadow: -6px -6px 14px rgba(103, 42, 156, 0.7),
+        -6px -6px 10px rgba(195, 50, 206, 0.5),
+        6px 6px 8px rgba(125, 13, 142, 0.075), 6px 6px 10px rgba(193, 17, 128, 0.15);
 }
 
 .feed-post-button:hover {
-    background-color: #2980b9;
+    background-color: #9C1A9C;
+    box-shadow: -2px -2px 6px rgba(174, 104, 104, 0.6),
+        -2px -2px 4px rgba(159, 85, 85, 0.4), 2px 2px 2px rgba(172, 85, 85, 0.05),
+        2px 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.feed-post-button:active {
+    box-shadow: inset -2px -2px 6px rgba(13, 208, 16, 0.7),
+        inset -2px -2px 4px rgba(64, 156, 18, 0.5),
+        inset 2px 2px 2px rgba(255, 255, 255, 0.075),
+        inset 2px 2px 4px rgba(0, 0, 0, 0.15);
 }

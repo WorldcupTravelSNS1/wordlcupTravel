@@ -46,24 +46,48 @@ const FeedPost = () => {
             <form className="feed-post-form" onSubmit={handleSubmit}>
                 <div className="feed-post-input">
                     <label className="feed-post-label">Title:</label>
-                    <input required type="text" className="feed-post-text-input" value={title} onChange={(e) => setTitle(e.target.value)} />
+                    <input
+                        type="text"
+                        className="feed-post-text-input"
+                        value={title}
+                        onChange={(e) => setTitle(e.target.value)}
+                    />
                 </div>
                 <div className="feed-post-input">
                     <label className="feed-post-label">Content:</label>
-                    <textarea required className="feed-post-textarea" value={content} onChange={(e) => setContent(e.target.value)} />
+                    <input
+                        className="feed-post-text-input"
+                        value={content}
+                        onChange={(e) => setContent(e.target.value)}
+                    />
                 </div>
                 <div className="feed-post-input">
                     <label className="feed-post-label">Tema:</label>
-                    <input required type="text" className="feed-post-text-input" value={tema} onChange={(e) => setTema(e.target.value)} />
+                    <input
+                        type="text"
+                        className="feed-post-text-input"
+                        value={tema}
+                        onChange={(e) => setTema(e.target.value)}
+                    />
                 </div>
                 <div className="feed-post-input">
-                    <label className="feed-post-label">Image URLs (comma-separated):</label>
-                    <input type="text" className="feed-post-text-input" value={imageUrl.join(',')} onChange={(e) => setImageUrl(e.target.value.split(','))} />
+                    <label className="feed-post-label">
+                        Image URLs (comma-separated):
+                    </label>
+                    <input
+                        type="text"
+                        className="feed-post-text-input"
+                        value={imageUrl.join(",")}
+                        onChange={(e) => setImageUrl(e.target.value.split(","))}
+                    />
                 </div>
-                <button type="submit" className="feed-post-button">Create Feed</button>
+                <button type="submit" className="feed-post-button">
+                    Create Feed
+                </button>
             </form>
         </div>
     );
-}
+};
+
 
 export default FeedPost

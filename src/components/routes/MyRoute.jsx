@@ -3,6 +3,7 @@ import Feed from "../feed/Feed"
 import FeedPost from "../feed/FeddPost"
 import BlockedFeed from "../feed/FeedRestore"
 import UpdateFeed from "../feed/FeedUpdate"
+import GetComment from "../feedcomment/GetComment"
 import { eastAsia } from "/wordcuptravel/wordlcupTravel/src/data/eastAsia.js"
 import { southEastAsia } from "/wordcuptravel/wordlcupTravel/src/data/southEastAsia.js"
 import { europe } from "/wordcuptravel/wordlcupTravel/src/data/europe.js"
@@ -28,6 +29,7 @@ const MyRoute = () => {
             <Route path="feedPost" element={<FeedPost />} />
             <Route path="/feedrestore" element={<BlockedFeed />} />
             <Route path="/feedupdate" element={<UpdateFeed />} />
+            <Route path="/comment" element={<GetComment />} />
 
             <Route path="/worldcup/europe" element={<Europe country={data.europe} />} />
             <Route path="/worldcup/eastasia" element={<EastAsia country={data.eastAsia} />} />
