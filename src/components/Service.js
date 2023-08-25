@@ -75,7 +75,7 @@ const Container = styled.div`
 
 const ServiceTitle = styled.div`
   width: 100%;
-
+  color: white;
   display: flex;
   justify-content: center;
   text-align: center;

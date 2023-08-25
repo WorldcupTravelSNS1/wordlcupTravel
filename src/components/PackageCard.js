@@ -38,6 +38,8 @@ function PackageCard({ image, onClick, stay, cost, tagline, location }) {
 
 export default PackageCard
 
+
+
 const Container = styled.div`
     width: 89vw;
     margin: 1vw 5vw;

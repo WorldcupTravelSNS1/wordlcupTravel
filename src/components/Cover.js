@@ -41,14 +41,14 @@ function Cover() {
           <CoverTitle>작정하고 떠나라</CoverTitle>
           <CoverTextu>🚀어느 나라로?🚀</CoverTextu>
           <CoverText>여행지 월드컵 해보던가</CoverText>
-          <div>
-            <StyledButton onClick={goToWorldcup}>
-              <BtnText>READY?</BtnText>
-              <BtnTwo>
-                <BtnText2>GO!</BtnText2>
-              </BtnTwo>
-            </StyledButton>
-          </div>
+
+          <StyledButton onClick={goToWorldcup}>
+            <BtnText>READY?</BtnText>
+            <BtnTwo>
+              <BtnText2>GO!</BtnText2>
+            </BtnTwo>
+          </StyledButton>
+
         </CoverBody>
         <BottomFade />
       </Container>
@@ -119,7 +119,7 @@ const CoverTextu = styled.div`
   }
 `;
 
-const StyledButton = styled.div`
+const StyledButton = styled.button`
   background: #3D4C53;
   margin: 20px auto;
   width: 200px;
@@ -158,7 +158,7 @@ const BtnTwo = styled.div`
   transition: 0.3s;
 `;
 
-const BtnText = styled.p`
+const BtnText = styled.text`
   color: white;
   transition: 0.3s;
 `;

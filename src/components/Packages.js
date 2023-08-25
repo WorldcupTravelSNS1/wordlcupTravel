@@ -3,11 +3,15 @@ import styled from "styled-components";
 import PackageCard from "./PackageCard";
 import PackageSelect from "./PackageSelect";
 import { useNavigate } from "react-router";
+import { useRecoilState, useSetRecoilState } from "recoil";
+import { feedPostState } from "../atoms/BoardAtom";
 
 
 
 function Packages() {
     const nav = useNavigate();
+
+
 
     const goToEurope = () => {
         nav("/worldcup/europe");
@@ -26,10 +30,11 @@ function Packages() {
     };
 
 
+
     return (
         <Container id='packages'>
             <Title>대륙별 여행지 월드컵</Title>
-            <PackageCards>
+            <marquee scrollamount="15" loop><PackageCards>
                 <PackageCard
 
                     image='america.jpg' onClick={goToNcsAmerica}
@@ -45,11 +50,12 @@ function Packages() {
 
                     image='seasia.jpg' onClick={goToSouthEastAsia}
                 />
-            </PackageCards><br /><br /><br /><br /><br /><br /><br /><br /><br /><br />
+            </PackageCards>
+            </marquee>
 
             <Title id='feed'>피드</Title>
             <Package>
-                <PackageSelect title='일본' active={true} />
+                <PackageSelect title='일본' active={false} />
                 <PackageSelect title='중국' active={false} />
                 <PackageSelect title='대한민국' active={false} />
                 <PackageSelect title='대만' active={false} />
@@ -120,7 +126,7 @@ const Title = styled.div`
 `
 
 const Package = styled.div`
-    width: 80vw;
+    width: 150vw;
     max-width: 1024px;
     display: flex;
     flex-direction: row;
@@ -137,22 +143,17 @@ const Package = styled.div`
 `
 
 const PackageCards = styled.div`
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    align-items: center;
-    flex-direction: column;
-    @media (min-width: 768px) {
-        flex-direction: row
-    }
-    @media (max-width: 300px) {
-        height: 70%;
-        width: 70%;
-        padding: 10px 10px;
-        justify-content: center;
-        align-items: center;
-        margin: 0;
-    }
+margin-top: 7.5vh;
+display: flex;
+/* flex-wrap: wrap; */ /* 주석 처리 */
+justify-content: center;
+
+align-items: center; /* 추가: 세로 중앙 정렬 */
+gap: 10px; /* 추가: 아이템 간격 조정 */
+@media (max-width: 480px) {
+  display: grid;
+  padding: 0 32px;
+}
     
 `
 

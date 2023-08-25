@@ -92,7 +92,7 @@ const Title = styled.div`
   margin-bottom: 1vh;
   font-size: 24px;
   font-weight: 600;
-  color: #000000;
+  color: white;
 `;
 
 const Text = styled.div`
