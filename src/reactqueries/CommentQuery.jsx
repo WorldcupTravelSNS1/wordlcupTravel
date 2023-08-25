@@ -7,7 +7,20 @@ import { useNavigate } from 'react-router';
 import './CommentList.css'; // CommentList 컴포넌트에 대한 스타일을 담은 CSS 파일을 불러옵니다.
 import DeleteComment from '../components/feedcomment/DeleteComment';
 import UpdateComment from '../components/feedcomment/UpdateComment';
+import styled from "styled-components";
 
+
+const UpdateButton = styled.button`
+  background-color: #3A6DF0;
+  border: none;
+  padding: 8px 26px;
+  color: #fff;
+  border-radius: 20px;
+  margin-top: 16px;
+  cursor: pointer;
+  transition: 0.3s;
+  white-space: nowrap;
+`;
 
 export const GetCommentQuery = () => {
     const meData = useRecoilValue(me)
@@ -40,7 +53,7 @@ export const GetCommentQuery = () => {
                             <p className="comment-author">작성자: {comment.memberName}</p>
                         </div>
                         {meData.memberId == comment.memberId ? <DeleteComment commentId={comment.id} /> : ""}
-                        {meData.memberId == comment.memberId ? <button onClick={e => setUpdate(true)}>수정</button> : ""}
+                        {meData.memberId == comment.memberId ? <UpdateButton onClick={e => setUpdate(true)}>수정</UpdateButton> : ""}
                         {update ? <UpdateComment commentId={comment.id} /> : ""}
                     </div>
                 ))}

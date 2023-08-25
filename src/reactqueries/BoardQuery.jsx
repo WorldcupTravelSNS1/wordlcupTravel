@@ -34,6 +34,7 @@ const UpdateButton = styled.button`
   cursor: pointer;
   transition: 0.3s;
   white-space: nowrap;
+  font-family: "Montserrat", sans-serif;
 `;
 
 export const GetFeedData = () => {
